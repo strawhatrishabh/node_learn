@@ -7,7 +7,7 @@ const geocodeApiKey = 'pk.eyJ1IjoicmlzaGFiaGdveWFsMTgiLCJhIjoiY2tlYjhobnd1MDZldD
 var limit = '1'
 
 const geocode = (address, callback) => {
-    var geocodeUrl = geocodeBaseUrl + encodeURIComponent(address) + '.json?access_token=' + geocodeApiKey + '&limit=' + limit;
+    const geocodeUrl = geocodeBaseUrl + encodeURIComponent(address) + '.json?access_token=' + geocodeApiKey + '&limit=' + limit;
 
     request({url: geocodeUrl, json: true}, (error, response) => {
         if(error) {
