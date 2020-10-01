@@ -45,7 +45,25 @@ app.get('/weather', (req, res) => {
     res.send({
         location: "Chandigarh",
         forecast: "Sunny",
-        temperature: 31
+        temperature: 31,
+        title: "Weather",
+        name: "Rishabh Goyal"
+    })
+})
+
+app.get("/help/*", (req, res) => {
+    res.render('404', {
+        title: "404",
+        name: "Rishabh Goyal",
+        errorMessage: "Help article not found"
+    })
+})
+
+app.get("*", (req, res) => {
+    res.render('404', {
+        title: "404",
+        name: "Rishabh Goyal",
+        errorMessage: "Page not found"
     })
 })
 
