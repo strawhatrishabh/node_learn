@@ -42,12 +42,33 @@ app.get("/help", (req, res) => {
 })
 
 app.get('/weather', (req, res) => {
+
+    if(!req.query.address) {
+        return res.send({
+            error: "Address must be provided in query params"
+        })
+    }
+
     res.send({
-        location: "Chandigarh",
+        location: req.query.address,
         forecast: "Sunny",
         temperature: 31,
         title: "Weather",
         name: "Rishabh Goyal"
+    })
+})
+
+app.get("/products", (req, res) => {
+    
+    if(!req.query.search) {
+        return res.send({
+            error: "Search parameter must be provided!"
+        })
+    }
+
+    console.log(req.query);
+    res.send({
+        products: []
     })
 })
 
